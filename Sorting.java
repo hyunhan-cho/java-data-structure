@@ -5,7 +5,8 @@ public class Sorting {
     }
 
     //선택정렬
-
+    public void selectionSort()
+    
     //버블 정렬
 
     //삽입정렬
