@@ -85,6 +85,20 @@ public class Linkintdeque {
     return this.size == 0; // size가 0이면 true 반환
   }
 
-  
+  //peekFirst: 덱의 앞에서 요소 확인
+  public int peekFirst(){
+    if (this.size == 0){
+      throw new IllegalStateException("Deque is empty");
+    }
+    return this.front.next.value; // front.next 노드의 값을 반환
+  }
+
+  public int peekLast(){
+    if (this.size == 0){
+      throw new IllegalStateException("Deque is empty");
+    }
+    return this.back.prev.value;
+  }
+
 
 }
