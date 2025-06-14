@@ -83,5 +83,4 @@ public class LinkedMap<K, V>{
         System.out.println(map.remove("apple")); // 1
         System.out.println(map.size()); // 1
     }
-
 }
