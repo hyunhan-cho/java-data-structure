@@ -14,12 +14,16 @@ public class ArrayIntQueue{
 
   // ✅ grow: 배열 크기를 두 배로 확장
   private void grow() {
-      int[] new_array = new int[this.elements.length * 2]; 
-    // 두 배 크기 배열 생성
-      for (int i = this.front; i < this.front +             this.elements.length; i++) {
-          new_array[i] = this.elements[i % this.elements.length]; // 순서대로 복사 (원형 대응)
+      int[] new_array = new int[this.elements.length * 2]; // 두 배 크기 배열 생성
+
+      // 현재 저장된 요소들만 올바른 순서로 복사
+      for (int i = 0; i < this.count; i++) {
+          new_array[i] = this.elements[(this.front + i) % this.elements.length];
       }
-      this.elements = new_array; // 배열 교체
+
+      this.elements = new_array;    // 배열 교체
+      this.front = 0;               // 새 배열에서는 0이 맨 앞
+      this.end = this.count;        // back은 요소 개수 위치로 이동
   }
   
   //enqueue: 큐의 뒤에 값 추가
